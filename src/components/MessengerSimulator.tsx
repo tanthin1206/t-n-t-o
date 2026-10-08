@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Phone, Video, Info, Lock, AlertTriangle, Clock, Keyboard } from 'lucide-react';
 import { ChoiceOption } from '@/types/game';
 import { soundEngine } from '@/lib/soundEngine';
+import { getAssetPath } from '@/lib/assetPath';
 
 interface MessengerSimulatorProps {
   friendName?: string;
@@ -150,7 +151,7 @@ export const MessengerSimulator: React.FC<MessengerSimulatorProps> = ({
           <div className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/characters/friend.jpg"
+              src={getAssetPath('/characters/friend.jpg')}
               alt={friendName}
               className="w-10 h-10 rounded-full object-cover object-top border border-cyan-500/50 shadow-md"
             />
@@ -191,7 +192,7 @@ export const MessengerSimulator: React.FC<MessengerSimulatorProps> = ({
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/characters/friend.jpg"
+              src={getAssetPath('/characters/friend.jpg')}
               alt={friendName}
               className="w-7 h-7 rounded-full object-cover object-top border border-cyan-600/60 flex-shrink-0 mb-1"
             />

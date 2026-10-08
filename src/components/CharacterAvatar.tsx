@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SpeakerRole } from '@/types/game';
 
+import { getAssetPath } from '@/lib/assetPath';
+
 interface CharacterAvatarProps {
   speaker: SpeakerRole;
   speakerName?: string;
@@ -27,7 +29,7 @@ export const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
       case 'player':
         return {
           label: speakerName || 'Bạn (Nhân vật chính)',
-          imageSrc: '/characters/player.jpg',
+          imageSrc: getAssetPath('/characters/player.jpg'),
           borderColor: 'border-amber-500/40',
           accent: '#f59e0b',
           glow: 'shadow-[0_0_40px_rgba(245,158,11,0.2)]',
@@ -37,7 +39,7 @@ export const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
       case 'friend':
         return {
           label: speakerName || 'Nam (Bạn thân)',
-          imageSrc: '/characters/friend.jpg',
+          imageSrc: getAssetPath('/characters/friend.jpg'),
           borderColor: 'border-cyan-500/40',
           accent: '#06b6d4',
           glow: 'shadow-[0_0_40px_rgba(6,182,212,0.2)]',
@@ -47,7 +49,7 @@ export const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
       case 'recruiter':
         return {
           label: speakerName || 'Hoàng (Tuyển dụng)',
-          imageSrc: '/characters/recruiter.jpg',
+          imageSrc: getAssetPath('/characters/recruiter.jpg'),
           borderColor: 'border-purple-500/40',
           accent: '#a855f7',
           glow: 'shadow-[0_0_40px_rgba(168,85,247,0.2)]',
@@ -57,7 +59,7 @@ export const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
       case 'driver':
         return {
           label: speakerName || 'Tài xế trung chuyển',
-          imageSrc: '/characters/driver.jpg',
+          imageSrc: getAssetPath('/characters/driver.jpg'),
           borderColor: 'border-slate-500/40',
           accent: '#64748b',
           glow: 'shadow-[0_0_35px_rgba(100,116,139,0.15)]',
@@ -67,7 +69,7 @@ export const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
       case 'manager':
         return {
           label: speakerName || 'Quản lý cơ sở',
-          imageSrc: '/characters/manager.jpg',
+          imageSrc: getAssetPath('/characters/manager.jpg'),
           borderColor: 'border-red-600/50',
           accent: '#dc2626',
           glow: 'shadow-[0_0_50px_rgba(220,38,38,0.3)]',

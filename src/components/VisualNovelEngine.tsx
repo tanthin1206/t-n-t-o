@@ -194,8 +194,7 @@ export const VisualNovelEngine: React.FC<VisualNovelEngineProps> = ({ onBackToHo
   // If in Epilogue scene, render full Epilogue screen directly
   if (gameState.currentSceneId === 'scene8_epilogue') {
     return (
-      <div className="relative min-h-screen w-full bg-black overflow-y-auto">
-        <CinematicBackground theme="ending_void" screenEffect="none" />
+      <div className="relative min-h-screen w-full bg-gradient-to-b from-[#0d131f] via-[#06090e] to-[#030407] overflow-y-auto">
         <EpilogueScreen
           pressure={gameState.pressure}
           friendTrust={gameState.friendTrust}

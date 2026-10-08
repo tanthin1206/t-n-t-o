@@ -95,13 +95,13 @@ export const CinematicBackground: React.FC<CinematicBackgroundProps> = ({
         />
       )}
 
-      {/* Fade to Black transition */}
+      {/* Fade transition */}
       {screenEffect === 'fade_black' && (
         <motion.div 
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 bg-black pointer-events-none z-50"
+          animate={{ opacity: [0, 0.7, 0] }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0 bg-black pointer-events-none z-10"
         />
       )}
     </div>

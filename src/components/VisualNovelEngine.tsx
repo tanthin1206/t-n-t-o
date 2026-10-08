@@ -87,9 +87,7 @@ export const VisualNovelEngine: React.FC<VisualNovelEngineProps> = ({ onBackToHo
     if (currentDialogue.screenEffect && currentDialogue.screenEffect !== 'none' && currentDialogue.screenEffect !== 'shake') {
       setActiveScreenEffect(currentDialogue.screenEffect);
       const timer = setTimeout(() => {
-        if (currentDialogue.screenEffect !== 'fade_black') {
-          setActiveScreenEffect('none');
-        }
+        setActiveScreenEffect('none');
       }, 700);
       return () => clearTimeout(timer);
     } else {
@@ -134,6 +132,7 @@ export const VisualNovelEngine: React.FC<VisualNovelEngineProps> = ({ onBackToHo
   // Branch selection
   const handleSelectChoice = useCallback((choice: ChoiceOption) => {
     setLastChoiceId(choice.id);
+    setActiveScreenEffect('none');
 
     setGameState((prev) => {
       const nextPressure = Math.min(100, Math.max(0, prev.pressure + (choice.pressureDelta || 0)));
@@ -178,9 +177,11 @@ export const VisualNovelEngine: React.FC<VisualNovelEngineProps> = ({ onBackToHo
       reducedMotion: gameState.reducedMotion,
     });
     setLastChoiceId(undefined);
+    setActiveScreenEffect('none');
   };
 
   const handleJumpToScene = (sceneId: SceneId) => {
+    setActiveScreenEffect('none');
     if (STORY_SCENES[sceneId]) {
       setGameState((prev) => ({
         ...prev,
@@ -190,11 +191,11 @@ export const VisualNovelEngine: React.FC<VisualNovelEngineProps> = ({ onBackToHo
     }
   };
 
-  // If in Epilogue scene, render full Epilogue screen
-  if (gameState.currentSceneId === 'scene8_epilogue' && isLastLine) {
+  // If in Epilogue scene, render full Epilogue screen directly
+  if (gameState.currentSceneId === 'scene8_epilogue') {
     return (
       <div className="relative min-h-screen w-full bg-black overflow-y-auto">
-        <CinematicBackground theme="ending_void" />
+        <CinematicBackground theme="ending_void" screenEffect="none" />
         <EpilogueScreen
           pressure={gameState.pressure}
           friendTrust={gameState.friendTrust}

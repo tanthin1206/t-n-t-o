@@ -764,7 +764,7 @@ export const STORY_SCENES: Record<SceneId, Scene> = {
         id: 'd_e1_6',
         speaker: 'narrator',
         text: 'Bạn nhìn chằm chằm vào dòng tin nhắn. Không có lời hồi đáp nào có thể gột rửa được sự thật.',
-        screenEffect: 'fade_black',
+        screenEffect: 'flicker',
       },
       {
         id: 'd_e1_7',
